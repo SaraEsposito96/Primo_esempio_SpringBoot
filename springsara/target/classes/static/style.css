@@ -21,10 +21,12 @@ body {
     --gray-color: #EDEDED;
     --container-width: 700px;
     --container-height: 400px;
-    --line-offset: calc((100% - var(--container-height))/ 2 + var(--menu-item-size) + 0.6em);
+    --line-offset: 180px;
 }
 
-
+.clear-float{
+	clear: both;
+}
 .container {
     width: var(--container-width);
     height: var(--container-height);
@@ -43,7 +45,7 @@ body {
     padding: 0.6em 0 0 0;
 }
 
-.main-menu > li {
+.main-menu > a {
     box-sizing: border-box;
     height: var(--menu-item-size);
     width: calc(3.5 * var(--menu-item-size));  
@@ -51,43 +53,46 @@ body {
     padding: 0 2em;
     margin: 1px;
     transition: 0.5s linear all;
-    color: black;
+    color: white;
     cursor: pointer;
     font-size: 16px;
     user-select: none;
     font-weight: bold;
+    text-decoration:none;
+	font-weight:bold;
+	text-shadow: 1px 1px 1px var(--dark-green-color);
 }
 
-.main-menu > li:not(.with-submenu) {
-    clip-path: polygon(10% 0%, 0% 100%, 95% 100%, 100% 50%, 95% 0%);
+.main-menu > a:not(.with-submenu) {
+    clip-path: polygon(10% 0%, 0% 100%, 95% 100%, 100% 100%, 95% 0%);
     shape-outside: polygon(10% 0%, 0% 100%, 95% 100%, 100% 50%, 95% 0%);
 }
 
-.main-menu > li:nth-child(2) {
+.main-menu > a:nth-child(2) {
     transform: translateX(-5%);
 }
 
-.main-menu > li:nth-child(3) {
+.main-menu > a:nth-child(3) {
     transform: translateX(-10%)
 }
 
-.main-menu > li:nth-child(4) {
+.main-menu > a:nth-child(4) {
     transform: translateX(-15%)
 }
 
-.main-menu > li:hover:not(.active) {
+.main-menu > a:hover:not(.active) {
     background: white;
     color: black;
 }
 
-.main-menu > li:active:not(.active),
-.main-menu > li:active:not(.with-submenu){
+.main-menu > a:active:not(.active),
+.main-menu > a:active:not(.with-submenu){
     background: var(--blue-color);
     color: var(--white-color);
 }
 
 .main-menu .active {
-    color: var(--white-color);
+    color: black;
     background-color:white;
     cursor: default;
     text-shadow: 1px 1px 1px var(--dark-green-color);
@@ -112,10 +117,10 @@ body {
 
 article {
    background: var(--gray-color);
-   height: 400px;
+   height: auto;
+   width: 640px;
    padding: 1em;
    border-radius: 0 0 5px 5px;
-   box-shadow: 5px 5px 5px #CCC;
    position: relative;
    z-index: -1;
 }
@@ -177,28 +182,20 @@ h1 {
     background: var(--white-color);
 }
 
-a{
-	text-decoration:none;
-	color: black;
-	font-weight:bold;
-}
-
-
 /*css FOOTER*/
 footer {
-   position:fixed;
-   left: 0;
-   bottom: 0;
-   width: 100%;
    background-color: #243545;
+   width: 100%;
    color: white;
    text-align: center;
+   margin-top: 1000px;
+   
 }
 
 /*css CONTATTI*/
 .form{
 	width:340px;
-	height:360px;
+	height:470px;
 	background:#e6e6e6;
 	border-radius:8px;
 	box-shadow:0 0 40px -10px #000;
@@ -209,12 +206,12 @@ footer {
 	box-sizing:border-box;
 	font-family:'Montserrat',sans-serif;
 	position:relative;
+	color:black;
+	font-weight: bold;
 }
 
 h2{
-	margin:10px 0;
-	padding-bottom:10px;
-	width:180px;
+	text-align:center;
 	color:#78788c;
 	border-bottom:3px solid #78788c;
 }
@@ -241,22 +238,23 @@ input:focus{
 	display:block;
 	margin:28px 0 0;
 	font-size:14px;
-	color:#5a5a5a
+	color:black;
+	
 }
 
-button{
+.submit{
 	float:right;
 	padding:8px 12px;
 	margin:8px 0 0;
 	font-family:'Montserrat',sans-serif;
 	border:2px solid #78788c;
 	background:0;
-	color:#5a5a6e;
+	color:black;
 	cursor:pointer;
 	transition:all .3s
 }
 
-button:hover{
+.submit:hover{
 	background:#78788c;
 	color:#fff
 }
@@ -267,7 +265,8 @@ button:hover{
 	bottom:-15px;
 	right:-20px;
 	background:#50505a;
-	color:#fff;
+	color:white;
+	font-weight:bold;
 	width:320px;
 	padding:16px 4px 16px 0;
 	border-radius:6px;
