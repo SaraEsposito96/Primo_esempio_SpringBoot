@@ -25,26 +25,17 @@
         
        <article>
             <div class="content">
-           		<form class="form" th:action="@{/send}" th:object="${dati}" method="post">
-  					<p class="contatti">Name: <input type="text" name="name" placeholder="Write your name here" required></p>
-  					<p class="contatti">Surname: <input type="text" name="surname" placeholder="Write your surname here" required></p>
-  					<p class="contatti">Email: <input type="text" name="email" placeholder="Write your email here" required></p>
-  					<p class="contatti">Message: <input type="text" name="message" placeholder="Write your message here" required></p>
-  					<input class="submit" type="submit" value="Send Message">
-  					<div class="cont">
-    					<span class="fa fa-phone"></span>081 1023 567
-    					<span class="fa fa-envelope-o"></span> sarae@gmail.com
-  					</div>
-   				</form>
+           		<h2> Messaggio inviato correttamente </h2>
+           		<p class="contatti"> Name: </p> <p th:text="${dati.name}" class="contatti"> </p>
+           		<p class="contatti"> Surname: </p> <p th:text="${dati.surname}" class="contatti"> </p>
+           		<p class="contatti"> Email: </p> <p th:text="${dati.email}" class="contatti"> </p>
+           		<p class="contatti"> Message: </p> <p th:text="${dati.message}" class="contatti"> </p>
            </div>
       </article>
-     
-     </div> 
-     
-    <br><br><br>
-        
+    </div>    
+    
+    
     <footer> Copyright © 2022 | Sara Esposito | Tutti i diritti sono riservati </footer>
     
-     
 </body>
 </html>

@@ -3,7 +3,11 @@ package it.sara.spring.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import it.sara.spring.DatiMessaggio;
 
 @Controller
 public class GreetingController {
@@ -29,11 +33,24 @@ public class GreetingController {
 		return "about";
 	}
 	
+	
 	@GetMapping("/contacts")
-	public String contacts() 
+	public String form(Model model)
 	{
+		DatiMessaggio dati = new DatiMessaggio();
+		model.addAttribute("dati",dati);
 		
 		return "contacts";
 	}
+	
+	@PostMapping("/send")
+	public String submitForm(@ModelAttribute("dati") DatiMessaggio dati)
+	{
+		dati.create(dati);
+		System.out.println(dati);
+		return "send_success";
+		
+	}
+	
 
 }

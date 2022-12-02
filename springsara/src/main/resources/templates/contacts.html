@@ -9,39 +9,42 @@
 	<div class="container">
         <nav class="menu">
             <ul class="main-menu">
-                <li class="colore1"><a href="home"> Home </a></li>
-                <li class="colore2 with-submenu"> Portfolio 
+                <a class="colore1" href="home"> Home </a>
+                <a class="colore2 with-submenu"> Portfolio
                     <ul class="submenu">
                         <li>HTML</li>
                         <li>CSS</li>
                         <li>PHP</li>
                         <li>JAVA</li>
                     </ul>
-                </li>
-                <li class="colore3"><a href="about">About</a></li>
-                <li class="colore4 active"><a href="contacts">Contacts</a></li>
+                </a>
+                <a class="colore3" href="about"> About </a> 
+                <a class="colore4 active" href="contacts"> Contacts </a>
             </ul>
         </nav>
         
        <article>
             <div class="content">
-           
-                <form class="form">
-  		<p class="contatti" type="Name:"><input placeholder="Write your name here"></input></p>
-  		<p class="contatti" type="Email:"><input placeholder="Write your email here"></input></p>
-  		<p class="contatti" type="Message:"><input placeholder="Write your message here"></input></p>
-  		<button>Send Message</button>
-  		<div class="cont">
-    		<span class="fa fa-phone"></span>081 1023 567
-    		<span class="fa fa-envelope-o"></span> sarae@gmail.com
-  		</div>
-   </form>
-            </div>
-        </article>
-    </div>    
-    
-    
+           		<form class="form" th:action="@{/send}" th:object="${dati}" method="post">
+  					<p class="contatti">Name: <input type="text" name="name" placeholder="Write your name here" required></p>
+  					<p class="contatti">Surname: <input type="text" name="surname" placeholder="Write your surname here" required></p>
+  					<p class="contatti">Email: <input type="text" name="email" placeholder="Write your email here" required></p>
+  					<p class="contatti">Message: <input type="text" name="message" placeholder="Write your message here" required></p>
+  					<input class="submit" type="submit" value="Send Message">
+  					<div class="cont">
+    					<span class="fa fa-phone"></span>081 1023 567
+    					<span class="fa fa-envelope-o"></span> sarae@gmail.com
+  					</div>
+   				</form>
+           </div>
+      </article>
+     
+     </div> 
+     
+    <br><br><br>
+        
     <footer> Copyright © 2022 | Sara Esposito | Tutti i diritti sono riservati </footer>
     
+     
 </body>
 </html>
